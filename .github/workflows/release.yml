@@ -1,0 +1,28 @@
+name: Windows release
+
+on:
+  push:
+    tags: ['v*']
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run pack
+      - shell: pwsh
+        run: |
+          Rename-Item release/win-unpacked/electron.exe Krypt.exe
+          Rename-Item release/win-unpacked Krypt-portable
+          npm run build:setup
+      - uses: softprops/action-gh-release@v2
+        with:
+          files: release/Krypt-Setup-1.0.0.exe

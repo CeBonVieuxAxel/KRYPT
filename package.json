@@ -1,0 +1,52 @@
+{
+  "name": "krypt",
+  "version": "1.0.0",
+  "description": "KRYPT — Vos secrets, sans le bruit.",
+  "main": "src/main/index.js",
+  "author": "Axel LEFEBVRE",
+  "license": "MIT",
+  "scripts": {
+    "start": "electron .",
+    "installer": "electron installer/main.js",
+    "build:setup": "powershell -ExecutionPolicy Bypass -File scripts/build-setup.ps1",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder",
+    "dist:win": "electron-builder --win"
+  },
+  "devDependencies": {
+    "electron": "^37.10.3",
+    "electron-builder": "^26.0.12"
+  },
+  "overrides": {
+    "yauzl": "^3.3.1"
+  },
+  "build": {
+    "appId": "com.krypt.vault",
+    "productName": "Krypt",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "src/**/*",
+      "assets/**/*",
+      "build/**/*",
+      "installer/**/*",
+      "package.json"
+    ],
+    "win": {
+      "icon": "build/icon.ico",
+      "signAndEditExecutable": false,
+      "target": ["nsis", "portable", "zip"],
+      "artifactName": "${productName}-${version}-${arch}-${target}.${ext}"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "artifactName": "Krypt-Setup-${version}.${ext}"
+    }
+  },
+  "allowScripts": {
+    "electron@37.10.3": true,
+    "electron-winstaller@5.4.0": true
+  }
+}

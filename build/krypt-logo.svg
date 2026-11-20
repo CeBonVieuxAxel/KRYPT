@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" fill="none">
+  <defs>
+    <radialGradient id="kryptGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="ringGrad" x1="16" y1="16" x2="112" y2="112" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.95"/>
+      <stop offset="50%" stop-color="#A1A1AA" stop-opacity="0.45"/>
+      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0.95"/>
+    </linearGradient>
+  </defs>
+  <circle cx="64" cy="64" r="58" fill="url(#kryptGlow)"/>
+  <circle cx="64" cy="64" r="46" stroke="url(#ringGrad)" stroke-width="3.5"/>
+  <circle cx="64" cy="64" r="34" stroke="#FFFFFF" stroke-opacity="0.14" stroke-width="1.5" stroke-dasharray="4 6"/>
+  <!-- Monogramme géométrique KRYPT (Trou de serrure atomique) -->
+  <path d="M50 42V86" stroke="#FFFFFF" stroke-width="5.5" stroke-linecap="round"/>
+  <path d="M78 44L54 64L79 85" stroke="#FFFFFF" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="50" cy="42" r="4.5" fill="#FFFFFF"/>
+  <circle cx="78" cy="44" r="4.5" fill="#FFFFFF"/>
+  <circle cx="79" cy="85" r="4.5" fill="#FFFFFF"/>
+</svg>
